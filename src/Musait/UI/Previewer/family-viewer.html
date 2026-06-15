@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Musait Family Preview</title>
+  <link rel="stylesheet" href="family-viewer.css">
+  <script src="vendor/three.module.js"></script>
+</head>
+<body>
+  <main class="wrap" id="previewRoot">
+    <section class="preview-block" aria-label="Family 3D preview">
+      <canvas id="cv"></canvas>
+      <div id="fallbackScene" class="fallback-scene" aria-hidden="true"></div>
+      <span id="familyMeta" class="preview-meta">Family JSON</span>
+      <div class="preview-controls">
+        <button class="pcb" type="button" onclick="resetView()">Reset</button>
+        <button class="pcb" type="button" id="wirebtn" onclick="toggleWire()">Wire</button>
+        <button class="pcb" type="button" id="flexbtn" onclick="flexAll()">Flex</button>
+        <button class="pcb" type="button" onclick="fitView()">Fit</button>
+      </div>
+      <div class="preview-label" id="previewHint">Drag to orbit · Scroll to zoom</div>
+    </section>
+
+    <section class="cols" aria-label="Family controls">
+      <div class="col">
+        <div class="col-hdr" id="componentHeader">Components</div>
+        <div class="col-scroll" id="componentList"></div>
+      </div>
+      <div class="col">
+        <div class="col-hdr" id="parameterHeader">Parameters</div>
+        <div class="col-scroll" id="parameterList"></div>
+      </div>
+    </section>
+
+    <section id="editStrip" class="edit-strip" hidden></section>
+    <section id="issueStrip" class="issue-strip" hidden></section>
+
+    <footer class="footer">
+      <button class="btn btn-sec" type="button" onclick="exportJSON()">JSON</button>
+      <button class="btn btn-pri" type="button" onclick="createRFA()">Create RFA</button>
+    </footer>
+  </main>
+  <script src="family-viewer.js"></script>
+</body>
+</html>

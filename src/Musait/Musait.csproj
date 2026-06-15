@@ -1,0 +1,78 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net10.0-windows;net8.0-windows;net48</TargetFrameworks>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <LangVersion>12.0</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>Musait</AssemblyName>
+    <RootNamespace>Musait</RootNamespace>
+    <Product>Musait – Renderings and Family Builder for Revit</Product>
+    <Description>AI-assisted Revit viewport capture and Gemini prompt workflow.</Description>
+    <AssemblyTitle>Musait – Renderings and Family Builder for Revit</AssemblyTitle>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <!-- Conditional References for Revit API -->
+  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
+    <PackageReference Include="Nice3point.Revit.Api.RevitAPI" Version="2023.*" />
+    <PackageReference Include="Nice3point.Revit.Api.RevitAPIUI" Version="2023.*" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-windows'">
+    <PackageReference Include="Nice3point.Revit.Api.RevitAPI" Version="2025.*" />
+    <PackageReference Include="Nice3point.Revit.Api.RevitAPIUI" Version="2025.*" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net10.0-windows'">
+    <PackageReference Include="Nice3point.Revit.Api.RevitAPI" Version="2027.*" />
+    <PackageReference Include="Nice3point.Revit.Api.RevitAPIUI" Version="2027.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Remove="System.Drawing" />
+    <Using Remove="System.Windows.Forms" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\assets\Musait.svg" Link="Assets\Musait.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\assets\Musait-16x16.png" Link="Assets\Musait-16x16.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\assets\Musait-32x32.png" Link="Assets\Musait-32x32.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="UI\Previewer\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <!-- Dependencies -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3967.48" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="8.0.0" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.0" />
+  </ItemGroup>
+
+  <!-- Copy to Revit Addins folder on build -->
+  <Target Name="CopyToRevitAddins" AfterTargets="AfterBuild" Condition="'$(TargetFramework)' == 'net48' and '$(DeployToRevitAddins)' == 'true'">
+    <Message Text="Copying Musait to Autodesk Revit 2023 Addins folder..." Importance="high" />
+    <ItemGroup>
+      <AddinManifest Include="$(ProjectDir)Musait.addin" />
+      <AddinFiles Include="$(TargetDir)**\*.*" />
+    </ItemGroup>
+    
+    <Copy SourceFiles="@(AddinManifest)" DestinationFolder="$(AppData)\Autodesk\Revit\Addins\2023\" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(AddinFiles)" DestinationFolder="$(AppData)\Autodesk\Revit\Addins\2023\Musait\%(RecursiveDir)" SkipUnchangedFiles="true" />
+  </Target>
+
+</Project>
+

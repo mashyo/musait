@@ -1,0 +1,21 @@
+# .gitignore for Musait (Mashyo Tools)
+
+# Visual Studio
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build artifacts
+bin/
+obj/
+Generated\ Files/
+dist/
+
+# Revit
+*.log
+bin/**/*.addin
+
+# OS
+.DS_Store
+Thumbs.db
