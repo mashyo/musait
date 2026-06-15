@@ -1,0 +1,15 @@
+<Project>
+  <PropertyGroup>
+    <Company>Mashyo</Company>
+    <Authors>Mashyo</Authors>
+    <Copyright>Copyright (c) 2026 Mashyo</Copyright>
+    <Version Condition="'$(Version)' == ''">1.0.0</Version>
+    <AssemblyVersion Condition="'$(AssemblyVersion)' == ''">$(Version).0</AssemblyVersion>
+    <FileVersion Condition="'$(FileVersion)' == ''">$(Version).0</FileVersion>
+    <InformationalVersion Condition="'$(InformationalVersion)' == ''">$(Version)</InformationalVersion>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/mashyo/musait</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/mashyo/musait</PackageProjectUrl>
+  </PropertyGroup>
+</Project>

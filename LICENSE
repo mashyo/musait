@@ -1,0 +1,36 @@
+Musait Source-Available License
+
+Copyright (c) 2026 Mashyo. All Rights Reserved.
+
+This is a legal agreement between you and Mashyo ("the Author"). By accessing, installing, building, or using Musait Free, you agree to these terms.
+
+1. License Grant
+You are granted a personal, non-exclusive, non-transferable right to inspect the source code, build Musait Free locally, and install and use Musait Free on machines that you own or control.
+
+2. Source-Available Status
+Musait Free source code is published for inspection, trust, and local builds. This license is source-available, not open source. It does not grant open-source redistribution, sublicensing, or broad derivative-work rights.
+
+3. Free and Pro Features
+Musait Free includes rendering workflows, Trends workflows, Family JSON acquisition/import, validation, normalization, copy/save actions, and local 3D preview. Musait Pro creates Revit `.rfa` files and may include code and services that are not part of this repository.
+
+4. Restrictions
+You may not:
+- (a) Redistribute, resell, sublicense, or commercially host the Software or substantial portions of its source code.
+- (b) Use this source code to create or distribute a competing product or service.
+- (c) Remove or alter proprietary notices, license text, or attribution.
+- (d) Add, publish, or distribute Musait Pro-only RFA creation code in this Free repository.
+- (e) Circumvent paid Musait Pro access by adding hidden generators, dormant code paths, patchable license checks, or equivalent bypasses.
+
+5. Warranty Disclaimer and BIM Safety
+THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND. The Author makes no warranty that the Software will meet your requirements or operate uninterrupted or error-free.
+
+BIM WARNING: You are using AI-generated content. The Author is NOT liable for any Revit project damage, model corruption, or errors in AI-generated artifacts. You are solely responsible for reviewing and validating any artifact before using it in a production environment.
+
+6. Limitation of Liability
+In no event shall the Author be liable for any indirect, incidental, special, or consequential damages. Maximum aggregate liability shall not exceed the amount paid for the Software.
+
+7. Governing Law
+This Agreement is governed by the laws of the Republic of Turkey. Any disputes shall be resolved in the competent courts of Turkey.
+
+8. Termination
+This license terminates automatically upon any breach of these terms.

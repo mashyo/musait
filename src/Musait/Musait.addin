@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>Musait</Name>
+    <Assembly>Musait/Musait.dll</Assembly>
+    <ClientId>D0A1C8E4-9F8A-4B6B-B3A2-5D6E1F4C9B0E</ClientId>
+    <FullClassName>Musait.App</FullClassName>
+    <VendorId>MASHYO</VendorId>
+    <VendorDescription>Mashyo Tools</VendorDescription>
+  </AddIn>
+</RevitAddIns>
+
